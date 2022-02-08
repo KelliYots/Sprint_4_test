@@ -12,14 +12,13 @@ public class Account {
         this.name = name;
     }
 
-
     /*
       Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
       @return Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
      */
 
-  /*  public boolean checkNameToEmboss() {
-
-    }*/
+    public boolean checkNameToEmboss() {
+        return name != null;
+    }
 
 }
