@@ -17,23 +17,23 @@ public class AccountTest {
         this.expectedName = expectedName;
     }
 
-    // TODO: 08.02.2022 напиши позже нормальные граничные значения, плез
     @Parameterized.Parameters
     public static Object[] dataForTest() {
         return new Object[][]{
                 {"Йо", false},
                 {"Йо ", false},
-                {"Й О", true},
                 {"", false},
+                {" ", false},
                 {null, false},
+                {"Й О", true},
+                {"Людвиг Витгенштейн", true},
                 {"Людвиг Витгенштейн", true},
                 {"ЛюдвигЙо Витгенштейн", false},
-                {"Людвиг Витгенштейн", true},
+                {"ЛюдвигВитгенштейн ", false},
+                {" ЛюдвигВитгенштейн", false},
+                {" ЛюдвигВитгенштейн ", false},
                 {" Людвиг Витгенштейн", false},
                 {"Людвиг Витгенштейн ", false},
-                {" ЛюдвигВитгенштейн ", false},
-                {" ЛюдвигВитгенштейн", false},
-                {"ЛюдвигВитгенштейн ", false},
                 {"Людвиг  Витгенштейн", false},
         };
     }
@@ -45,6 +45,5 @@ public class AccountTest {
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
         assertEquals(expectedName, actual);
-
     }
 }
